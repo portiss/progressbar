@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>Progress Bar (use CSS trasition)</h1>
+    <div class="bar-container">
+        <div class="bar"></div>
+    </div>
+
+    <button onclick="fillbar(3)">start</button>
+    <button onclick="fillbar(2, true)">reset</button>
+
+    <script>
+        /*
+           Params: seconds, isReset
+         */
+        function fillbar(seconds, isReset) {
+            console.log(`${isReset ? 'reset' : 'fill'} bar clicked`)
+            const bar = document.querySelector('.bar')
+            bar.style.transition = `${seconds}s linear width`
+            bar.style.width = isReset ? '0%' : '100%'
+        }
+    </script>
+
+    <style>
+        body {
+            margin: 50px;
+            background-color: lightslategray
+        }
+
+        h1 {
+            color: wheat;
+        }
+
+        button {
+            margin: 20px 0;
+            color: teal;
+            width: 10em;
+        }
+
+        .bar-container {
+            width: 450px;
+            height: 50px;
+            background-color: lightgray;
+        }
+
+        .bar {
+            background-color: yellow;
+            height: 100%;
+            width: 0%;
+        }
+    </style>
+</body>
+
+</html>
